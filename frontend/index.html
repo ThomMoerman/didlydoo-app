@@ -17,7 +17,12 @@
         <section class="container__eventForm">
             <div class="container__eventForm__form">
                 <input type="text" class="container__eventForm__form_name" placeholder="Event name">
-                <input type="date" class="container__eventForm__form_date">
+                <div class="container__eventForm__form_dates">
+                    <div class="date-container" data-index="0">
+                      <input type="date" class="container__eventForm__form_date">
+                      <button class="remove-date-btn" type="button">-</button>
+                    </div>
+                  </div>
                 <button class="container__eventForm__Add_btnAddDate" type="submit">Add date</button>
                 <input type="text" class="container__eventForm__form_author" placeholder="Author">
                 <input type="text" class="container__eventForm__form_description" placeholder="Description">
