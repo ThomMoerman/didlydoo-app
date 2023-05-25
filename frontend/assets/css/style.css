@@ -1,47 +1,53 @@
-body h1 {
+body {
+  margin: 0 auto;
+}
+body header {
+  background-color: #1864ab;
+}
+body header h1 {
   font-size: 75px;
   font-weight: 100;
-  color: #1864ab;
+  color: #ffffff;
   padding: 40px;
   text-align: center;
+  margin: 0;
+}
+body .container {
+  padding-top: 50px;
 }
 body .container .container__eventForm {
-  background-color: blue;
   display: flex;
   justify-content: space-evenly;
-  height: 100px;
 }
-body .container .container__eventForm .container__eventForm__form {
-  background-color: green;
-}
-body .container .container__eventForm .container__eventForm__Add {
-  background-color: yellow;
-}
-body .container .container__eventDescription {
-  background-color: indianred;
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 40px 0 40px;
-}
-body .container .container__eventDescription .container__eventDescription__info {
-  background-color: aqua;
-}
-body .container .container__eventDescription .container__eventDescription__edit {
-  background-color: orange;
-}
-body .container .container__eventDescription .container__eventDescription__edit .container__eventDescription__edit_modify, body .container .container__eventDescription .container__eventDescription__edit .container__eventDescription__edit_add {
+body .container .container__eventForm button {
   background-color: #1864ab;
   color: #ffffff;
-  font-weight: 700;
-  border: #0a2c4c solid 1px;
-  border-radius: 10px;
+  border: #0a2c4c solid 2px;
+  padding: 3px 5px 3px 5px;
 }
-body .container .container__eventDescription .container__eventDescription__edit .container__eventDescription__edit_delete {
+body .container .container__eventForm button:hover {
+  cursor: pointer;
+}
+body .container .container__eventForm input[type=date] :hover {
   background-color: #1864ab;
-  color: #ffffff;
-  font-weight: 700;
-  border: #0a2c4c solid 1px;
-  border-radius: 10px;
-  background-color: #8b000e;
 }
+body .container .container__eventsTable .container__eventsTable__event {
+  margin-bottom: 80px;
+}
+body .container .container__eventsTable .container__eventsTable__event h2 {
+  font-size: 28px;
+  font-weight: 100;
+  color: #1864ab;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+}
+body .container .container__eventsTable .container__eventsTable__event p {
+  color: #4d4d4d;
+  font-size: 15px;
+  text-align: justify;
+}
+body .container .container__eventsTable .container__eventsTable__event button {
+  margin: 0 4px 0 4px;
+}
+
+/*# sourceMappingURL=style.css.map */

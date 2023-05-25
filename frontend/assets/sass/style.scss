@@ -1,40 +1,46 @@
 @import './mixin.scss';
+@import './variables.scss'; 
 
 body{
-    h1{
-        @include title(); 
+    margin: 0 auto;
+    header{
+        background-color: $blue;
+        h1{
+            @include title(); 
+            margin:0; 
+        }
     }
     .container{
+        padding-top: 50px;
         .container__eventForm{
-            background-color: blue;
+            // background-color: blue;
             display: flex;
             justify-content: space-evenly;
-            height: 100px;
-            .container__eventForm__form{
-                background-color: green;
+            & button {
+                @include addBtn(); 
+                &:hover{
+                    cursor: pointer;
+                }
             }
-            .container__eventForm__Add{
-                background-color: yellow;
+            input[type=date]{
+                & :hover{
+                    background-color: $blue;
+                }
             }
         }
-        .container__eventDescription{
-            background-color: indianred;
-            height: 100px;
-            display: flex;
-            justify-content: space-between;
-            margin: 0 40px 0 40px ;
-            .container__eventDescription__info{
-                background-color: aqua;
-            }
-            .container__eventDescription__edit{
-                background-color: orange;
-            }
-            .container__eventDescription__edit{
-                .container__eventDescription__edit_modify, .container__eventDescription__edit_add{
-                    @include addBtn(); 
+        .container__eventsTable{
+            // background-color: lightcoral;
+            .container__eventsTable__event{
+                margin-bottom: 80px;
+                h2{
+                    @include subTitle;
+                    margin: 10px 0 10px 0; 
                 }
-                .container__eventDescription__edit_delete{
-                    @include deleteBtn(); 
+                p{
+                    @include txt; 
+                }
+                button{
+                    margin: 0 4px 0 4px;
                 }
             }
         }
