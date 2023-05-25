@@ -3,39 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="authors" content="Thomas  & Jodie Addis">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Didlydoo App</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <header>  
-          <h1>Didlydoo</h1>
+        <h1>Didlydoo</h1>
     </header>
     <main class="container">
         <section class="container__eventForm">
             <div class="container__eventForm__form">
-
+                <input type="text" class="container__eventForm__form_name" placeholder="Event name">
+                <input type="date" class="container__eventForm__form_date">
+                <button class="container__eventForm__Add_btn" type="submit">Add date</button>
+                <!-- <input type="text" class="container__eventForm__form_author">
+                <input type="text" class="container__eventForm__form_description"> -->
             </div>
-            <div class="container__eventForm__btnAdd">
-
+            <div class="container__eventForm__Add">
+                <input type="text" class="container__eventForm__form_author" placeholder="Author">
+                <input type="text" class="container__eventForm__form_description" placeholder="Description">
+                <button class="container__eventForm__Add_btn" type="submit">Add event</button>
             </div>
         </section>
         <section class="container__eventDescription">
             <div class="container__eventDescription__info">
+                <h2>Event name</h2>
+                <p>description</p>
 
             </div>
             <div class="container__eventDescription__edit">
+                <button class="container__eventDescription__edit_modify">Modify</button>
+                <button class="container__eventDescription__edit_add">Add</button>
+                <button class="container__eventDescription__edit_delete">Delete</button>
 
             </div>
         </section>
         <section class="container__eventsTable">
-            <div id="eventList">
+            <!-- <div id="eventList">
                 
-            </div>
+            </div> -->
         </section>
     </main>
     <footer>
 
     </footer>
-    <script src="../frontend/script.js"></script>
+    <!-- <script src="../frontend/script.js"></script> -->
 </body>
 </html>
