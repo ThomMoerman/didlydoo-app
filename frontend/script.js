@@ -1,23 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const eventListElement = document.getElementById('eventList');
+function init() {
+    const eventListElement = document.querySelector('.container__eventsTable');
   
     fetch('http://127.0.0.1:3000/api/events')
-      .then((response) => response.json())
-      .then((data) => {
-        // Render the list of events
-        renderEventList(data);
+        .then((response) => response.json())
+      .then((events) => {
+        renderEventList(events);
       })
       .catch((error) => {
         console.error('Error fetching events:', error);
       });
+  
+    // function fetchEvents() {
+    //   return fetch('http://127.0.0.1:3000/api/events')
+    //     .then((response) => response.json());
+    // }
   
     function renderEventList(events) {
       // Clear the existing content
       eventListElement.innerHTML = '';
   
       if (events.length === 0) {
-        const noEventsMessage = document.createElement('p');
-        noEventsMessage.textContent = 'No events found.';
+        const noEventsMessage = createNoEventsMessage();
         eventListElement.appendChild(noEventsMessage);
       } else {
         events.forEach((event) => {
@@ -27,56 +30,87 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
+    function createNoEventsMessage() {
+      const noEventsMessage = document.createElement('p');
+      noEventsMessage.textContent = 'No events found.';
+      return noEventsMessage;
+    }
+  
     function createEventElement(event) {
       const eventContainer = document.createElement('div');
-      eventContainer.classList.add('event');
+      eventContainer.classList.add('container__eventsTable__event');
+
+      const eventContainerTop = document.createElement('div');
+      eventContainerTop.classList.add('container__eventsTable__event__top')
+
+      const eventContainerBottom = document.createElement('div');
+      eventContainerTop.classList.add('container__eventsTable__event__bottom')
   
       const nameElement = document.createElement('h2');
       nameElement.textContent = event.name;
-      eventContainer.appendChild(nameElement);
+      eventContainerTop.appendChild(nameElement);
   
       const descriptionElement = document.createElement('p');
       descriptionElement.textContent = event.description;
-      eventContainer.appendChild(descriptionElement);
+      eventContainerTop.appendChild(descriptionElement);
+
+      const editEventBtn = document.createElement('button');
+      editEventBtn.textContent = "Modify"
+      eventContainerTop.appendChild(editEventBtn);
+
+      const addDatesBtn = document.createElement('button');
+      addDatesBtn.textContent = "Add Dates"
+      eventContainerTop.appendChild(addDatesBtn);
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = "Delete"
+      eventContainerTop.appendChild(deleteBtn);
+
+      const attendeesTable = createAttendeesTable(event.dates);
+      eventContainerBottom.appendChild(attendeesTable);
   
-      const authorElement = document.createElement('p');
-      authorElement.textContent = 'Author: ' + event.author;
-      eventContainer.appendChild(authorElement);
-  
-      const datesElement = document.createElement('div');
-      datesElement.classList.add('dates');
-      event.dates.forEach((date) => {
-        const dateElement = createDateElement(date);
-        datesElement.appendChild(dateElement);
-      });
-      eventContainer.appendChild(datesElement);
-  
+      eventContainer.appendChild(eventContainerTop);
+      eventContainer.appendChild(eventContainerBottom);
+      
       return eventContainer;
     }
   
-    function createDateElement(date) {
-      const dateContainer = document.createElement('div');
-      dateContainer.classList.add('date');
+    function createAttendeesTable(dates) {
+      const table = document.createElement('table');
+      table.classList.add('attendees-table');
   
-      const dateLabel = document.createElement('p');
-      dateLabel.textContent = 'Date: ' + date.date;
-      dateContainer.appendChild(dateLabel);
+      // Create the table header
+      const headerRow = document.createElement('tr');
+      const headerCell = document.createElement('th');
+      headerCell.textContent = 'Dates';
+      headerRow.appendChild(headerCell);
   
-      const attendeesElement = document.createElement('div');
-      attendeesElement.classList.add('attendees');
-      date.attendees.forEach((attendee) => {
-        const attendeeElement = createAttendeeElement(attendee);
-        attendeesElement.appendChild(attendeeElement);
+      dates.forEach((date) => {
+        const dateHeaderCell = document.createElement('th');
+        dateHeaderCell.textContent = date.date;
+        headerRow.appendChild(dateHeaderCell);
       });
-      dateContainer.appendChild(attendeesElement);
   
-      return dateContainer;
+      table.appendChild(headerRow);
+  
+      // Create table rows for each attendee
+      dates[0].attendees.forEach((attendee, index) => {
+        const row = document.createElement('tr');
+        const attendeeNameCell = document.createElement('td');
+        attendeeNameCell.textContent = attendee.name;
+        row.appendChild(attendeeNameCell);
+  
+        dates.forEach((date) => {
+          const availabilityCell = document.createElement('td');
+          availabilityCell.textContent = attendee.available ? 'V' : 'X';
+          row.appendChild(availabilityCell);
+        });
+  
+        table.appendChild(row);
+      });
+  
+      return table;
     }
+  }
   
-    function createAttendeeElement(attendee) {
-      const attendeeElement = document.createElement('p');
-      attendeeElement.textContent = 'Attendee: ' + attendee.name + ', Availability: ' + (attendee.available ? 'Available' : 'Not Available');
-      return attendeeElement;
-    }
-  });
-  
+  document.addEventListener('DOMContentLoaded', init);
