@@ -205,9 +205,9 @@ document.addEventListener('click', (event) => {
     const datesContainer = dateContainer.parentNode;
     const index = parseInt(dateContainer.getAttribute('data-index'));
 
-    // Vérifier si c'est le premier champ de date
+    // Check if it's the first input date
     if (index === 0) {
-      alert("Vous devez renseigner au moins une date pour l'évènement");
+      alert("Premier champ de date insuppressible\nVous devez renseigner au moins une date pour l'évènement");
       return;
     }
 
