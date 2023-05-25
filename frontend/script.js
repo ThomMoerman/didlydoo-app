@@ -44,7 +44,7 @@ function init() {
       eventContainerTop.classList.add('container__eventsTable__event__top')
 
       const eventContainerBottom = document.createElement('div');
-      eventContainerTop.classList.add('container__eventsTable__event__bottom')
+      eventContainerBottom.classList.add('container__eventsTable__event__bottom')
   
       const nameElement = document.createElement('h2');
       nameElement.textContent = event.name;
@@ -71,7 +71,7 @@ function init() {
   
       eventContainer.appendChild(eventContainerTop);
       eventContainer.appendChild(eventContainerBottom);
-      
+
       return eventContainer;
     }
   
