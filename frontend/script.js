@@ -35,7 +35,8 @@ function init() {
 
     function createEventElement(event) {
         const eventContainer = document.createElement('div');
-        eventContainer.classList.add('container__eventsTable__event');
+        eventContainer.classList.add(`container__eventsTable__event`);
+        eventContainer.classList.add(`${event.id}`);
 
         const eventContainerTop = document.createElement('div');
         eventContainerTop.classList.add('container__eventsTable__event__top');
@@ -75,6 +76,14 @@ function init() {
         const attendeesTable = createAttendeesTable(event.dates);
         eventContainerBottom.appendChild(attendeesTable);
 
+        const addAttendeeBtn = document.createElement('button');
+        addAttendeeBtn.textContent = 'Add Attendee';
+        addAttendeeBtn.classList.add('add-attendee-button');
+        addAttendeeBtn.addEventListener('click', () => {
+            addAttendeeToEvent(event.id);
+        });
+
+        eventContainerBottom.appendChild(addAttendeeBtn);
         eventContainerTop.appendChild(eventContainerTopLeft);
         eventContainerTop.appendChild(eventContainerTopRight);
         eventContainer.appendChild(eventContainerTop);
@@ -113,6 +122,24 @@ function init() {
             headerRow.appendChild(dateHeaderCell);
         });
 
+        const lastRow = document.createElement('tr');
+        lastRow.className = 'add_attendee_row';
+
+        const attendeeNameCell = document.createElement('td');
+        const attendeeNameInput = document.createElement('input');
+        attendeeNameInput.type = 'text';
+        attendeeNameInput.placeholder = "Attendee's Name";
+        attendeeNameCell.appendChild(attendeeNameInput);
+        lastRow.appendChild(attendeeNameCell);
+
+        dates.forEach(() => {
+            const availabilityCell = document.createElement('td');
+            const attendeeAvailabilityCheckbox = document.createElement('input');
+            attendeeAvailabilityCheckbox.type = 'checkbox';
+            availabilityCell.appendChild(attendeeAvailabilityCheckbox);
+            lastRow.appendChild(availabilityCell);
+        });
+
         table.appendChild(headerRow);
 
         // Create table rows for each attendee
@@ -130,6 +157,7 @@ function init() {
             });
 
             table.appendChild(row);
+            table.appendChild(lastRow);
         });
 
         return table;
@@ -194,6 +222,10 @@ function init() {
         return fetch(`http://127.0.0.1:3000/api/events/${eventId}`, {
             method: "DELETE",
         });
+    }
+
+    function addAttendeeToEvent(eventId) {
+
     }
 }
 
