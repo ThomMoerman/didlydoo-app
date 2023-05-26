@@ -80,6 +80,20 @@ function init() {
         eventContainer.appendChild(eventContainerTop);
         eventContainer.appendChild(eventContainerBottom);
 
+        deleteBtn.addEventListener("click", () => {
+            deleteEvent(event.id)
+                .then((response) => {
+                    if (response.status === 200) {
+                        eventListElement.removeChild(eventContainer);
+                    } else {
+                        throw new Error("Error deleting event");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error deleting event", error);
+                });
+        });
+
         return eventContainer;
     }
 
@@ -173,6 +187,12 @@ function init() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(event),
+        });
+    }
+
+    function deleteEvent(eventId) {
+        return fetch(`http://127.0.0.1:3000/api/events/${eventId}`, {
+            method: "DELETE",
         });
     }
 }
