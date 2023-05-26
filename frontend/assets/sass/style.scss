@@ -1,23 +1,35 @@
 @import './mixin.scss';
 @import './variables.scss'; 
 
+@font-face {
+    font-family: open;
+    src: url();
+}
+
 body{
     margin: 0 auto;
     header{
         background-color: $blue;
+        border-bottom: $blueBorder solid 3px; 
         h1{
             @include title(); 
             margin:0; 
         }
     }
     .container{
-        padding-top: 50px;
+        padding: 50px 0 50px 0; 
+        background-image: url("https://images.unsplash.com/photo-1576516542483-d86a298dbded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80");
+        background-size: cover;
         .container__eventForm{
-            // background-color: blue;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             & button {
-                @include addBtn(); 
+                @include addBtn();
+                border-radius: 100px;
+                width: 25px;
+                height: 25px;
+                font-family: 18px;
+                font-weight: 600; 
                 &:hover{
                     cursor: pointer;
                 }
@@ -27,20 +39,82 @@ body{
                     background-color: $blue;
                 }
             }
+            .container__eventForm__form_dates{
+                margin-left: 40px;
+                border-radius: 100%;
+            }
         }
         .container__eventsTable{
-            // background-color: lightcoral;
+            background-color: rgba(238, 238, 238, 0.5); 
+            backdrop-filter: blur(10px);
+            margin: 50px 120px 50px 120px;
+            padding: 10px 0 10px 0;
+            border-radius: 40px;
+            border: $blueBorder solid 2px;
             .container__eventsTable__event{
-                margin-bottom: 80px;
-                h2{
-                    @include subTitle;
-                    margin: 10px 0 10px 0; 
+                margin: 100px 50px 100px 50px; 
+                .container__eventsTable__event__top{
+                    display: flex;
+                    justify-content: space-between; 
+                    margin: 50px 0 20px px;
+                    h2{
+                        @include subTitle; 
+                        border-top: $blueBorder solid 3px;
+                        border-bottom: $blueBorder solid 3px;
+                    }
+                    p{
+                        @include txt; 
+                    }
+                    button{
+                        @include addBtn; 
+                        margin: 0 5px 0 5px;
+                        padding: 5px 10px 5px 10px;
+                        border-radius: 5px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
                 }
-                p{
-                    @include txt; 
+                .container__eventsTable__event__bottom{
+                    display: flex;
+                    justify-content: center; 
+                    margin-top: 30px;
+                    text-align: center;
+                    table{
+                        border-collapse: collapse;
+                        background-color: $txtColor;
+                        th, td{
+                            border: $blueBorder solid 2px ;
+                        }
+                        th{
+                            @include headTab;
+                            height: 30px;
+                        }
+                        td{
+                            width: 100px ; 
+                            height: 30px;
+                        }
+                    }
                 }
-                button{
-                    margin: 0 4px 0 4px;
+            }
+        }
+    }
+    footer{
+        height: 80px;
+        background-color: $blueBorder;
+        color: $txtColor;
+        text-align: center;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        p{
+            align-self: center;
+            a{
+                text-decoration: none;
+                color : $txtColor; 
+                &:hover {
+                    color : #58fb00; 
+                    cursor: pointer;
                 }
             }
         }

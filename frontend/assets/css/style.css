@@ -1,8 +1,13 @@
+@font-face {
+  font-family: open;
+  src: url();
+}
 body {
   margin: 0 auto;
 }
 body header {
   background-color: #1864ab;
+  border-bottom: #0a2c4c solid 3px;
 }
 body header h1 {
   font-size: 75px;
@@ -13,17 +18,25 @@ body header h1 {
   margin: 0;
 }
 body .container {
-  padding-top: 50px;
+  padding: 50px 0 50px 0;
+  background-image: url("https://images.unsplash.com/photo-1576516542483-d86a298dbded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80");
+  background-size: cover;
 }
 body .container .container__eventForm {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 body .container .container__eventForm button {
   background-color: #1864ab;
   color: #ffffff;
-  border: #0a2c4c solid 2px;
+  border: #0a2c4c solid 1px;
   padding: 3px 5px 3px 5px;
+  text-align: center;
+  border-radius: 100px;
+  width: 25px;
+  height: 25px;
+  font-family: 18px;
+  font-weight: 600;
 }
 body .container .container__eventForm button:hover {
   cursor: pointer;
@@ -31,23 +44,95 @@ body .container .container__eventForm button:hover {
 body .container .container__eventForm input[type=date] :hover {
   background-color: #1864ab;
 }
+body .container .container__eventForm .container__eventForm__form_dates {
+  margin-left: 40px;
+  border-radius: 100%;
+}
+body .container .container__eventsTable {
+  background-color: rgba(238, 238, 238, 0.5);
+  backdrop-filter: blur(10px);
+  margin: 50px 120px 50px 120px;
+  padding: 10px 0 10px 0;
+  border-radius: 40px;
+  border: #0a2c4c solid 2px;
+}
 body .container .container__eventsTable .container__eventsTable__event {
-  margin-bottom: 80px;
+  margin: 100px 50px 100px 50px;
 }
-body .container .container__eventsTable .container__eventsTable__event h2 {
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 20px px;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top h2 {
   font-size: 28px;
-  font-weight: 100;
-  color: #1864ab;
+  font-weight: 600;
+  color: #0a2c4c;
   padding: 10px;
-  margin: 10px 0 10px 0;
+  border-top: #0a2c4c solid 3px;
+  border-bottom: #0a2c4c solid 3px;
 }
-body .container .container__eventsTable .container__eventsTable__event p {
-  color: #4d4d4d;
-  font-size: 15px;
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top p {
+  color: #242424;
+  font-size: 18px;
   text-align: justify;
+  font-weight: 600;
 }
-body .container .container__eventsTable .container__eventsTable__event button {
-  margin: 0 4px 0 4px;
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top button {
+  background-color: #1864ab;
+  color: #ffffff;
+  border: #0a2c4c solid 1px;
+  padding: 3px 5px 3px 5px;
+  text-align: center;
+  margin: 0 5px 0 5px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
 }
-
-/*# sourceMappingURL=style.css.map */
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top button:hover {
+  cursor: pointer;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table {
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table th, body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table td {
+  border: #0a2c4c solid 2px;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table th {
+  background-color: #1864ab;
+  font-size: 15px;
+  font-weight: 100;
+  color: #ffffff;
+  text-align: center;
+  height: 30px;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table td {
+  width: 100px;
+  height: 30px;
+}
+body footer {
+  height: 80px;
+  background-color: #0a2c4c;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+body footer p {
+  align-self: center;
+}
+body footer p a {
+  text-decoration: none;
+  color: #ffffff;
+}
+body footer p a:hover {
+  color: #58fb00;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

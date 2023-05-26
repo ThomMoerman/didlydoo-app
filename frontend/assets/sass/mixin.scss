@@ -10,25 +10,35 @@
 
 @mixin subTitle{
     font-size: 28px;
-    font-weight: 100;
-    color: $blue; 
+    font-weight: 600;
+    color: $blueBorder;
     padding: 10px;
+}
+
+@mixin headTab{
+    background-color: $blue;
+    font-size: 15px;
+    font-weight: 100;
+    color: $txtColor; 
+    text-align: center;
 }
 
 @mixin txt{
     color: $grey;
-    font-size: 15px;
+    font-size: 18px;
     text-align: justify; 
+    font-weight: 600;
 }
 @mixin addBtn  {
     background-color: $blue;
     color : $txtColor; 
-    border : $blueBorder solid 2px; 
+    border : $blueBorder solid 1px; 
     padding: 3px 5px 3px 5px; 
+    text-align: center;
 }
 
 @mixin deleteBtn  {
     @include addBtn(); 
     background-color: $delete;
-    border : $redBorder solid 2px; 
+    border : $redBorder solid 1px; 
 }

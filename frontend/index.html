@@ -15,28 +15,36 @@
     </header>
     <main class="container">
         <section class="container__eventForm">
-            <div class="container__eventForm__form">
+            <div class="container__eventForm__Add">
                 <input type="text" class="container__eventForm__form_name" placeholder="Event name">
-                <div class="container__eventForm__form_dates">
-                    <div class="date-container" data-index="0">
-                      <input type="date" class="container__eventForm__form_date">
-                      <button class="remove-date-btn" type="button">-</button>
-                    </div>
-                </div>
-                <button class="container__eventForm__Add_btnAddDate" type="submit">Add date</button>
                 <input type="text" class="container__eventForm__form_author" placeholder="Author">
                 <input type="text" class="container__eventForm__form_description" placeholder="Description">
+                <button class="container__eventForm__Add_btn" type="submit">+</button>
             </div>
-            <div class="container__eventForm__Add">
+            <div class="container__eventForm__form">
+                <div class="container__eventForm__form_dates">
+                    <div class="date-container" data-index="0">
+                        <input type="date" class="container__eventForm__form_date">
+                        <button class="container__eventForm__Add_btnAddDate" type="submit">+</button>
+                        <button class="remove-date-btn" type="button">-</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container__eventForm__Add">
+                <input type="text" class="container__eventForm__form_name" placeholder="Event name">
+                <input type="text" class="container__eventForm__form_author" placeholder="Author">
+                <input type="text" class="container__eventForm__form_description" placeholder="Description">
                 <button class="container__eventForm__Add_btn" type="submit">Add event</button>
-            </div>
+            </div> -->
         </section>
         <section class="container__eventsTable">
     
         </section>
     </main>
     <footer>
-
+        <p>
+            Coded by&nbsp;<a href="https://github.com/ThomMoerman" target="_blank">Thomas Moerman</a>,&nbsp;<a href="https://github.com/MarineFsn" target="_blank">Marine Fassin</a>&nbsp;and&nbsp;<a href="https://github.com/JodieAddis" target="_blank">Jodie Addis</a>
+        </p>
     </footer>
     <script defer src="../frontend/script.js"></script>
 </body>
