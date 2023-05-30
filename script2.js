@@ -72,8 +72,11 @@ function init() {
         const addDatesBtn = document.createElement("button");
         addDatesBtn.textContent = "Add Dates";
         addDatesBtn.classList.add(
-            "container__eventsTable__event__top__Right__blueBtn"
+            "container__eventsTable__event__top__Right__blueBtn_addDate"
         );
+        addDatesBtn.addEventListener("click", () => {
+            addDateToEvent(event.id);
+        });
         eventContainerTopRight.appendChild(addDatesBtn);
 
         const deleteBtn = document.createElement("button");
@@ -96,15 +99,15 @@ function init() {
             const dateCheckbox = document.createElement("input");
             dateCheckbox.type = "checkbox";
             dateCheckbox.id = `dateCheckbox-${i}`;
-            
+
             const dateLabel = document.createElement("label");
             console.log(event.dates[i]);
             dateLabel.textContent = event.dates[i].date;
             dateLabel.setAttribute("for", `dateCheckbox-${i}`);
-            
+
             participantForm.appendChild(dateCheckbox);
             participantForm.appendChild(dateLabel);
-          }
+        }
 
         const submitBtn = document.createElement("button");
         submitBtn.textContent = "Add Participant";
@@ -173,6 +176,44 @@ function init() {
 
         return eventContainer;
     }
+
+    function addDateToEvent(eventId) {
+        const currentDate = new Date().toISOString().split('T')[0]; // Obtient la date actuelle au format YYYY-MM-DD
+        const newDate = prompt("Enter the date (YYYY-MM-DD):");
+
+        // Vérifie si la date est valide
+        if (newDate && newDate >= currentDate) {
+            const dateData = {
+                dates: [newDate],
+            };
+
+            fetch(`http://127.0.0.1:3000/api/events/${eventId}/add_dates`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(dateData),
+            })
+                .then((response) => {
+                    if (response.status === 200) {
+                        return response.json();
+                    } else {
+                        throw new Error("Error adding date to event");
+                    }
+                })
+                .then((updatedEvent) => {
+                    const updatedAttendeesTable = createAttendeesTable(updatedEvent.dates);
+                    eventContainerBottom.innerHTML = "";
+                    eventContainerBottom.appendChild(updatedAttendeesTable);
+                })
+                .catch((error) => {
+                    console.error("Error adding date to event:", error);
+                });
+        } else {
+            alert("Invalid date. Please enter a valid date (YYYY-MM-DD).");
+        }
+    }
+
 
     function deleteEvent(eventId) {
         return fetch(`http://127.0.0.1:3000/api/events/${eventId}`, {
@@ -247,14 +288,14 @@ function init() {
 
     function updateEvent(eventId, eventData) {
         return fetch(`http://127.0.0.1:3000/api/events/${eventId}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(eventData)
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(eventData)
         });
-      }
-      
+    }
+
     function closeDialog() {
         document.body.removeChild(dialog);
     }
@@ -283,7 +324,7 @@ function init() {
             const attendeeNameCell = document.createElement("td");
             attendeeNameCell.textContent = attendee.name;
             row.appendChild(attendeeNameCell);
-    
+
             dates.forEach((date) => {
                 const availabilityCell = document.createElement("td");
                 // Retrieve the availability for the specific date
@@ -363,48 +404,48 @@ function init() {
 
 const addDateBtn = document.querySelector(
     ".container__eventForm__Add_btnAddDate"
-  );
-  
-  addDateBtn.addEventListener("click", () => {
+);
+
+addDateBtn.addEventListener("click", () => {
     const datesContainer = document.querySelector(
-      ".container__eventForm__form_dates"
+        ".container__eventForm__form_dates"
     );
     const newDateContainer = document.createElement("div");
     newDateContainer.classList.add("date-container");
-  
+
     const newDateInput = document.createElement("input");
     newDateInput.type = "date";
     newDateInput.classList.add("container__eventForm__form_date");
     newDateContainer.appendChild(newDateInput);
-  
+
     const removeDateBtn = document.createElement("button");
     removeDateBtn.textContent = "-";
     removeDateBtn.classList.add("remove-date-btn");
     removeDateBtn.type = "button";
     newDateContainer.appendChild(removeDateBtn);
-  
+
     datesContainer.appendChild(newDateContainer);
     dateCount++;
-  });
-  
-  document.addEventListener("DOMContentLoaded", init);
-  document.addEventListener("click", (event) => {
+});
+
+document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("click", (event) => {
     if (event.target.classList.contains("remove-date-btn")) {
-      const dateContainer = event.target.parentNode;
-      const datesContainer = dateContainer.parentNode;
-      const index = parseInt(dateContainer.getAttribute("data-index"));
-  
-      // Check if it's the first input date
-      if (index === 0) {
-        alert(
-          "Premier champ de date insuppressible\nVous devez renseigner au moins une date pour l'évènement"
-        );
-        return;
-      }
-  
-      datesContainer.removeChild(dateContainer);
-      dateCount--;
-      console.log(dateCount);
+        const dateContainer = event.target.parentNode;
+        const datesContainer = dateContainer.parentNode;
+        const index = parseInt(dateContainer.getAttribute("data-index"));
+
+        // Check if it's the first input date
+        if (index === 0) {
+            alert(
+                "Premier champ de date insuppressible\nVous devez renseigner au moins une date pour l'évènement"
+            );
+            return;
+        }
+
+        datesContainer.removeChild(dateContainer);
+        dateCount--;
+        console.log(dateCount);
     }
 });
 

@@ -1,55 +1,5 @@
 [
   {
-    "id": "02c887eb2e49",
-    "name": "Testing",
-    "author": "Thom",
-    "description": "blablablablubli",
-    "dates": [
-      "2023-05-25",
-      "2023-06-02",
-      "2023-06-11"
-    ],
-    "created_at": "2023-05-30T13:27:18.932Z",
-    "num_modification": 6,
-    "last_modification": "2023-05-30T13:32:01.843Z",
-    "attendees": [
-      {
-        "name": "Thom",
-        "dates": [
-          {
-            "date": "2023-05-25",
-            "available": false
-          },
-          {
-            "date": "2023-06-02",
-            "available": false
-          },
-          {
-            "date": "2023-06-11",
-            "available": false
-          }
-        ]
-      },
-      {
-        "name": "Marco",
-        "dates": [
-          {
-            "date": "2023-05-25",
-            "available": true
-          },
-          {
-            "date": "2023-06-02",
-            "available": false
-          },
-          {
-            "date": "2023-06-11",
-            "available": true
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "f5b6564b5dc4",
     "name": "My sweet 16",
     "description": "I am going to be 16, let us all party together! Help me pick a date so we can go together",
@@ -58,7 +8,9 @@
       "2022-03-17",
       "2022-03-18",
       "2022-03-21",
-      "2022-03-22"
+      "2022-03-22",
+      "2023-12-30",
+      "2023-11-03"
     ],
     "attendees": [
       {
@@ -92,28 +44,7 @@
         ]
       },
       {
-        "name": "Marc",
-        "dates": [
-          {
-            "date": "2022-03-17",
-            "available": false
-          },
-          {
-            "date": "2022-03-18",
-            "available": true
-          },
-          {
-            "date": "2022-03-21",
-            "available": false
-          },
-          {
-            "date": "2022-03-22",
-            "available": false
-          }
-        ]
-      },
-      {
-        "name": "Marco",
+        "name": "Jodie ",
         "dates": [
           {
             "date": "2022-03-17",
@@ -125,31 +56,18 @@
           },
           {
             "date": "2022-03-21",
-            "available": true
-          },
-          {
-            "date": "2022-03-22",
-            "available": false
-          }
-        ]
-      },
-      {
-        "name": "Marine ",
-        "dates": [
-          {
-            "date": "2022-03-17",
-            "available": true
-          },
-          {
-            "date": "2022-03-18",
-            "available": true
-          },
-          {
-            "date": "2022-03-21",
             "available": false
           },
           {
             "date": "2022-03-22",
+            "available": true
+          },
+          {
+            "date": "2023-11-03",
+            "available": false
+          },
+          {
+            "date": "2023-12-30",
             "available": true
           }
         ]
