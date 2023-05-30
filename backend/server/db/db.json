@@ -1,5 +1,55 @@
 [
   {
+    "id": "02c887eb2e49",
+    "name": "Testing",
+    "author": "Thom",
+    "description": "blablabla",
+    "dates": [
+      "2023-05-25",
+      "2023-06-02",
+      "2023-06-11"
+    ],
+    "created_at": "2023-05-30T13:27:18.932Z",
+    "num_modification": 0,
+    "last_modification": "2023-05-30T13:27:18.932Z",
+    "attendees": [
+      {
+        "name": "Thom",
+        "dates": [
+          {
+            "date": "2023-05-25",
+            "available": false
+          },
+          {
+            "date": "2023-06-02",
+            "available": false
+          },
+          {
+            "date": "2023-06-11",
+            "available": false
+          }
+        ]
+      },
+      {
+        "name": "Marco",
+        "dates": [
+          {
+            "date": "2023-05-25",
+            "available": true
+          },
+          {
+            "date": "2023-06-02",
+            "available": false
+          },
+          {
+            "date": "2023-06-11",
+            "available": true
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "f5b6564b5dc4",
     "name": "My sweet 16",
     "description": "I am going to be 16, let us all party together! Help me pick a date so we can go together",
@@ -40,11 +90,74 @@
             "available": true
           }
         ]
+      },
+      {
+        "name": "Marc",
+        "dates": [
+          {
+            "date": "2022-03-17",
+            "available": false
+          },
+          {
+            "date": "2022-03-18",
+            "available": true
+          },
+          {
+            "date": "2022-03-21",
+            "available": false
+          },
+          {
+            "date": "2022-03-22",
+            "available": false
+          }
+        ]
+      },
+      {
+        "name": "Marco",
+        "dates": [
+          {
+            "date": "2022-03-17",
+            "available": true
+          },
+          {
+            "date": "2022-03-18",
+            "available": false
+          },
+          {
+            "date": "2022-03-21",
+            "available": true
+          },
+          {
+            "date": "2022-03-22",
+            "available": false
+          }
+        ]
+      },
+      {
+        "name": "Marine ",
+        "dates": [
+          {
+            "date": "2022-03-17",
+            "available": true
+          },
+          {
+            "date": "2022-03-18",
+            "available": true
+          },
+          {
+            "date": "2022-03-21",
+            "available": false
+          },
+          {
+            "date": "2022-03-22",
+            "available": true
+          }
+        ]
       }
     ],
     "created_at": "2021-11-15T00:00",
-    "num_modification": 9,
-    "last_modification": "2023-05-30T07:40:18.340Z"
+    "num_modification": 12,
+    "last_modification": "2023-05-30T12:55:10.100Z"
   },
   {
     "id": "38b643aeb883",
@@ -95,7 +208,7 @@
       }
     ],
     "created_at": "2021-11-13T14:00",
-    "num_modification": 2,
-    "last_modification": "2023-05-30T07:37:57.786Z"
+    "num_modification": 3,
+    "last_modification": "2023-05-30T08:33:06.454Z"
   }
 ]
