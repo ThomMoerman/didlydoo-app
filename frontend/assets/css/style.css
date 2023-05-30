@@ -91,7 +91,7 @@ body .container .container__eventsTable .container__eventsTable__event .containe
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin: 30px 0 30px 0;
   text-align: center;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table {
@@ -128,12 +128,13 @@ body .container .container__eventsTable .container__eventsTable__event .containe
 body .container form {
   display: flex;
   justify-content: center;
+  width: fit-content;
+  margin: auto;
+  padding: 10px 20px 10px 20px;
   background-color: #1864ab;
   color: #ffffff;
-  margin: 30px 0 20px 0;
-  width: fit-content;
-  padding: 10px 20px 10px 20px;
   border: #0a2c4c solid 1px;
+  font-size: 14px;
 }
 body .container form label {
   margin-right: 10px;
