@@ -245,6 +245,16 @@ function init() {
         dialog.showModal(); // Affiche la fenêtre modale
     }
 
+    function updateEvent(eventId, eventData) {
+        return fetch(`http://127.0.0.1:3000/api/events/${eventId}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(eventData)
+        });
+      }
+      
     function closeDialog() {
         document.body.removeChild(dialog);
     }

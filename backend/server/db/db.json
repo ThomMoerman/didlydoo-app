@@ -3,15 +3,15 @@
     "id": "02c887eb2e49",
     "name": "Testing",
     "author": "Thom",
-    "description": "blablabla",
+    "description": "blablablablubli",
     "dates": [
       "2023-05-25",
       "2023-06-02",
       "2023-06-11"
     ],
     "created_at": "2023-05-30T13:27:18.932Z",
-    "num_modification": 0,
-    "last_modification": "2023-05-30T13:27:18.932Z",
+    "num_modification": 6,
+    "last_modification": "2023-05-30T13:32:01.843Z",
     "attendees": [
       {
         "name": "Thom",
