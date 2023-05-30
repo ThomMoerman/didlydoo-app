@@ -1,10 +1,11 @@
+
 @import'./variables.scss'; 
 
 @mixin title{
     font-size: 75px;
     font-weight: 100;
     color: $txtColor; 
-    padding: 40px;
+    padding: 30px;
     text-align: center;
 }
 
@@ -18,17 +19,18 @@
 @mixin headTab{
     background-color: $blue;
     font-size: 15px;
-    font-weight: 100;
+    font-weight: 400;
     color: $txtColor; 
     text-align: center;
 }
 
 @mixin txt{
     color: $grey;
-    font-size: 18px;
+    font-size: 15px;
     text-align: justify; 
     font-weight: 600;
 }
+
 @mixin addBtn  {
     background-color: $blue;
     color : $txtColor; 
@@ -38,7 +40,21 @@
 }
 
 @mixin deleteBtn  {
-    @include addBtn(); 
+    @include addBtn; 
     background-color: $delete;
     border : $redBorder solid 1px; 
+}
+
+@mixin addAttend{
+    background-color: $blue;
+    color: $txtColor;
+    border-left: $lightGrey solid 2px;
+    font-size: 15px;
+}
+
+@mixin dialog{
+    background-color: $blue;
+    color: $txtColor;
+    border: $blueBorder solid 2px;
+    font-size: 15px;
 }

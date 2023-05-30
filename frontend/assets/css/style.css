@@ -1,9 +1,10 @@
 @font-face {
   font-family: open;
-  src: url();
+  src: url(../font/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf);
 }
 body {
   margin: 0 auto;
+  font-family: open;
 }
 body header {
   background-color: #1864ab;
@@ -13,7 +14,7 @@ body header h1 {
   font-size: 75px;
   font-weight: 100;
   color: #ffffff;
-  padding: 40px;
+  padding: 30px;
   text-align: center;
   margin: 0;
 }
@@ -40,41 +41,37 @@ body .container .container__eventForm button {
 }
 body .container .container__eventForm button:hover {
   cursor: pointer;
-}
-body .container .container__eventForm input[type=date] :hover {
-  background-color: #1864ab;
+  background-color: #b40ff0;
 }
 body .container .container__eventForm .container__eventForm__form_dates {
   margin-left: 40px;
   border-radius: 100%;
 }
 body .container .container__eventsTable {
-  background-color: rgba(238, 238, 238, 0.5);
-  backdrop-filter: blur(10px);
   margin: 50px 120px 50px 120px;
-  padding: 10px 0 10px 0;
-  border-radius: 40px;
-  border: #0a2c4c solid 2px;
 }
 body .container .container__eventsTable .container__eventsTable__event {
-  margin: 100px 50px 100px 50px;
+  margin: 50px;
+  background-color: rgba(238, 238, 238, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 10px 0 30px 0;
+  border-radius: 30px;
+  border: #0a2c4c solid 2px;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0 20px px;
+  margin: 20px;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top h2 {
   font-size: 28px;
   font-weight: 600;
   color: #0a2c4c;
   padding: 10px;
-  border-top: #0a2c4c solid 3px;
-  border-bottom: #0a2c4c solid 3px;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top p {
   color: #242424;
-  font-size: 18px;
+  font-size: 15px;
   text-align: justify;
   font-weight: 600;
 }
@@ -86,7 +83,7 @@ body .container .container__eventsTable .container__eventsTable__event .containe
   text-align: center;
   margin: 0 5px 0 5px;
   padding: 5px 10px 5px 10px;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__top button:hover {
   cursor: pointer;
@@ -99,34 +96,91 @@ body .container .container__eventsTable .container__eventsTable__event .containe
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table {
   border-collapse: collapse;
-  background-color: #ffffff;
+  background-color: #0a2c4c;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table th, body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table td {
-  border: #0a2c4c solid 2px;
+  border-bottom: #9b9898 solid 2px;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table th {
   background-color: #1864ab;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 400;
   color: #ffffff;
   text-align: center;
   height: 30px;
 }
 body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom table td {
+  color: #ffffff;
   width: 100px;
   height: 30px;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom button {
+  background-color: #1864ab;
+  color: #ffffff;
+  border-left: #9b9898 solid 2px;
+  font-size: 15px;
+  border-color: #242424 #1864ab;
+}
+body .container .container__eventsTable .container__eventsTable__event .container__eventsTable__event__bottom button:hover {
+  background-color: #b40ff0;
+  cursor: pointer;
+}
+body .container form {
+  display: flex;
+  justify-content: center;
+  background-color: #1864ab;
+  color: #ffffff;
+  margin: 30px 0 20px 0;
+  width: fit-content;
+  padding: 10px 20px 10px 20px;
+  border: #0a2c4c solid 1px;
+}
+body .container form label {
+  margin-right: 10px;
+}
+body .container form button {
+  background-color: #0a2c4c;
+  border: #ffffff solid 1px;
+  border-radius: 5px;
+  color: #ffffff;
+  margin-left: 10px;
+}
+body .container #eventDialog {
+  background-color: #1864ab;
+  color: #ffffff;
+  border: #0a2c4c solid 2px;
+  font-size: 15px;
+}
+body .container #eventDialog input {
+  margin: 10px;
+}
+body .container #eventDialog button {
+  background-color: #1864ab;
+  color: #ffffff;
+  border-left: #9b9898 solid 2px;
+  font-size: 15px;
+  background-color: #0a2c4c;
+  border: #ffffff solid 1px;
+  border-radius: 8px;
+  padding: 5px 10px 5px 10px;
+  margin: 0 5px 0 5px;
+}
+body .container #eventDialog button:hover {
+  background-color: #b40ff0;
+  cursor: pointer;
 }
 body footer {
   height: 80px;
   background-color: #0a2c4c;
   color: #ffffff;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   display: flex;
   justify-content: center;
 }
 body footer p {
   align-self: center;
+  word-spacing: 2px;
 }
 body footer p a {
   text-decoration: none;

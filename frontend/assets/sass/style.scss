@@ -1,18 +1,21 @@
 @import './mixin.scss';
-@import './variables.scss'; 
+@import './variables.scss';
 
 @font-face {
     font-family: open;
-    src: url();
+    src: url(../font/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf);
 }
+
+
 
 body{
     margin: 0 auto;
+    font-family: open;
     header{
         background-color: $blue;
         border-bottom: $blueBorder solid 3px; 
         h1{
-            @include title(); 
+            @include title; 
             margin:0; 
         }
     }
@@ -24,7 +27,7 @@ body{
             display: flex;
             justify-content: center;
             & button {
-                @include addBtn();
+                @include addBtn;
                 border-radius: 100px;
                 width: 25px;
                 height: 25px;
@@ -32,11 +35,7 @@ body{
                 font-weight: 600; 
                 &:hover{
                     cursor: pointer;
-                }
-            }
-            input[type=date]{
-                & :hover{
-                    background-color: $blue;
+                    background-color: $hover;
                 }
             }
             .container__eventForm__form_dates{
@@ -45,22 +44,20 @@ body{
             }
         }
         .container__eventsTable{
-            background-color: rgba(238, 238, 238, 0.5); 
-            backdrop-filter: blur(10px);
             margin: 50px 120px 50px 120px;
-            padding: 10px 0 10px 0;
-            border-radius: 40px;
-            border: $blueBorder solid 2px;
             .container__eventsTable__event{
-                margin: 100px 50px 100px 50px; 
+                margin: 50px; 
+                background-color: rgba(238, 238, 238, 0.5); 
+                backdrop-filter: blur(10px);
+                padding: 10px 0 30px 0;
+                border-radius: 30px;
+                border: $blueBorder solid 2px;
                 .container__eventsTable__event__top{
                     display: flex;
                     justify-content: space-between; 
-                    margin: 50px 0 20px px;
+                    margin: 20px;
                     h2{
                         @include subTitle; 
-                        border-top: $blueBorder solid 3px;
-                        border-bottom: $blueBorder solid 3px;
                     }
                     p{
                         @include txt; 
@@ -69,7 +66,7 @@ body{
                         @include addBtn; 
                         margin: 0 5px 0 5px;
                         padding: 5px 10px 5px 10px;
-                        border-radius: 5px;
+                        border-radius: 8px;
                         &:hover{
                             cursor: pointer;
                         }
@@ -82,19 +79,67 @@ body{
                     text-align: center;
                     table{
                         border-collapse: collapse;
-                        background-color: $txtColor;
+                        background-color: $blueBorder;
                         th, td{
-                            border: $blueBorder solid 2px ;
+                            border-bottom: $lightGrey solid 2px ;
                         }
                         th{
                             @include headTab;
                             height: 30px;
                         }
                         td{
+                            color:$txtColor;
                             width: 100px ; 
                             height: 30px;
                         }
                     }
+                    button{
+                        @include addAttend; 
+                        border-color: $grey $blue;
+                        &:hover{
+                            background-color: $hover;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        form{
+            display: flex; 
+            justify-content: center;
+            background-color: $blue;
+            color : $txtColor;  
+            margin: 30px 0 20px 0;
+            width: fit-content;
+            padding: 10px 20px 10px 20px; 
+            // border-radius: 8px; 
+            border : $blueBorder solid 1px;
+            label{
+                margin-right: 10px; 
+            }
+            & button{
+                background-color: $blueBorder; 
+                border: $txtColor solid 1px; 
+                border-radius: 5px;
+                color : $txtColor; 
+                margin-left: 10px;
+            }
+        }
+        #eventDialog{
+            @include dialog; 
+            input{
+                margin: 10px;
+            }
+            button{
+                @include addAttend;
+                background-color: $blueBorder;
+                border: $txtColor solid 1px;
+                border-radius: 8px;
+                padding: 5px 10px 5px 10px;
+                margin: 0 5px 0 5px;
+                &:hover{
+                    background-color: $hover;
+                    cursor: pointer;
                 }
             }
         }
@@ -104,11 +149,12 @@ body{
         background-color: $blueBorder;
         color: $txtColor;
         text-align: center;
-        font-size: 15px;
+        font-size: 12px;
         display: flex;
         justify-content: center;
         p{
             align-self: center;
+            word-spacing: 2px;
             a{
                 text-decoration: none;
                 color : $txtColor; 
@@ -118,5 +164,12 @@ body{
                 }
             }
         }
+        //Code pour la coloration des icon 'present-absent' : 
+        // .check{
+        //     filter: invert(76%) sepia(8%) saturate(4130%) hue-rotate(81deg) brightness(96%) contrast(74%);
+        // }
+        // .delete{
+        //     filter: invert(24%) sepia(95%) saturate(2001%) hue-rotate(335deg) brightness(82%) contrast(97%);
+        // }
     }
 }
