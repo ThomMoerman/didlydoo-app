@@ -301,44 +301,72 @@ function init() {
     }
 
     function createAttendeesTable(dates) {
+        const tableContainer = document.createElement("div");
+        tableContainer.classList.add("table-container");
+    
         const table = document.createElement("table");
         table.classList.add("attendees-table");
-
-        // Create the table header
+    
         const headerRow = document.createElement("tr");
         const headerCell = document.createElement("th");
         headerCell.textContent = "Dates";
         headerRow.appendChild(headerCell);
-
+    
         dates.forEach((date) => {
-            const dateHeaderCell = document.createElement("th");
-            dateHeaderCell.textContent = date.date;
-            headerRow.appendChild(dateHeaderCell);
+        const dateHeaderCell = document.createElement("th");
+        dateHeaderCell.textContent = date.date;
+        headerRow.appendChild(dateHeaderCell);
         });
-
+    
         table.appendChild(headerRow);
-
-        // Create table rows for each attendee
+    
         dates[0].attendees.forEach((attendee, index) => {
-            const row = document.createElement("tr");
-            const attendeeNameCell = document.createElement("td");
-            attendeeNameCell.textContent = attendee.name;
-            row.appendChild(attendeeNameCell);
-
-            dates.forEach((date) => {
-                const availabilityCell = document.createElement("td");
-                // Retrieve the availability for the specific date
-                const availability = date.attendees[index].available;
-                availabilityCell.textContent = availability ? "V" : "X";
-                row.appendChild(availabilityCell);
-            });
-
-            table.appendChild(row);
+        const row = document.createElement("tr");
+        const attendeeNameCell = createTableCell(attendee.name);
+        row.appendChild(attendeeNameCell);
+    
+        dates.forEach((date) => {
+            const availability = date.attendees[index].available;
+            const availabilityCell = createTableCell(availability ? "V" : "X");
+    
+            row.appendChild(availabilityCell);
+            makeCellEditable(availabilityCell);
         });
-
-        return table;
+    
+        table.appendChild(row);
+        });
+    
+        tableContainer.appendChild(table);
+    
+        tableContainer.addEventListener("click", (event) => {
+        const closestCell = event.target.closest("td");
+    
+        if (closestCell) {
+            makeCellEditable(closestCell);
+        }
+        });
+    
+        return tableContainer;
     }
-
+    function createTableCell(text) {
+        const cell = document.createElement("td");
+        cell.textContent = text;
+        return cell;
+    }
+    function makeCellEditable(cell) {
+        cell.contentEditable = true;
+        cell.addEventListener("input", handleCellInput);
+    }
+    function handleCellInput(event) {
+        const cell = event.target;
+        const cellValue = cell.textContent.trim(); 
+        if (cellValue !== "V" && cellValue !== "X") {
+            if (cellValue.length > 0) {
+                Swal.fire('Please, write "V" or "X"');
+                cell.textContent = "";
+            }
+        }
+    }
     const addEventBtn = document.querySelector(".container__eventForm__Add_btn");
     addEventBtn.addEventListener("click", () => {
         const eventNameInput = document.querySelector(
